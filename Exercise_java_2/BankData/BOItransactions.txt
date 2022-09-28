@@ -1,0 +1,33 @@
+Tranction time      : 29/09/2022 00:02:50
+Bank Name           : Bank Of India.
+Account Holder Name : mohit
+Account No          : 936
+Account Type        : SAVING
+Before Transaction  : 3232.0
+You have Withdraw   : 1345.0
+After Transaction   : 1887.0
+Transaction status  : Successful
+
+------------------------------------------------------------
+Tranction time      : 29/09/2022 00:03:19
+Bank Name           : Bank Of India.
+Account Holder Name : mohit
+Account No          : 936
+Account Type        : SAVING
+Before Transaction  : 1887.0
+You have Deposited  : 2000.0
+After Transaction   : 3887.0
+Transaction status  : Successful
+
+------------------------------------------------------------
+Tranction time      : 29/09/2022 00:05:53
+Bank Name           : Bank Of India.
+Account Holder Name : vaibhav
+Account No          : 369
+Account Type        : SAVING
+Before Transaction  : 1000.0
+You have Withdraw   : 1000.0
+After Transaction   : 0.0
+Transaction status  : Successful
+
+------------------------------------------------------------

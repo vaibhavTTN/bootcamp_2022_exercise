@@ -1,0 +1,7 @@
+Bank Name           : Bank Of India.Account Holder Name : 123
+Account No          : 123
+Account Type        : SAVING
+You have Withdraw   : 123
+Total Balance       : 23.0
+
+------------------------------------------------------------
