@@ -1,0 +1,132 @@
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Exercise Question and Solution :-
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Question 1 : Add a maven dependency and its related repository URL.
+
+Solution 1 : For this i have added a dependency junit.
+
+		code :
+  			<dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.13.2</version>
+                <scope>test</scope>
+            </dependency>
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Question 2 : Add a new repository in the pom.xml and use its dependencies.
+
+Solution 2 : For this I have added a repository named "jboss-repo" using following code :
+		    <repositories>
+        		<repository>
+            			<id>jboss-repo</id>
+            			<url>http://repository.jboss.org/nexus/content/groups/public/</url>
+        		</repository>
+    		</repositories>
+
+    		And to add the dependency whose artifact id is "jboss-logging", i have added following code :
+    		<dependency>
+            		<groupId>org.jboss.logging</groupId>
+            		<artifactId>jboss-logging</artifactId>
+            		<version>3.4.3.Final</version>
+        	</dependency>
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Question 3 : Using JAR plugin, make changes in the pom.xml to make the jar executable.
+             Using java -jar JAR_NAME, the output should be printed as "Hello World"
+
+Solution 3 : Used the following code to make the jar executable and <mainClass></mainClass> is
+             where I have specified which file's main method i want to use :
+
+     code : <build>
+                <plugins>
+                    <plugin>
+                        <!-- Build an executable JAR -->
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <version>3.1.0</version>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <addClasspath>true</addClasspath>
+                                    <classpathPrefix>lib/</classpathPrefix>
+                                    <mainClass>org.example.Main</mainClass>
+                                </manifest>
+                            </archive>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+
+Then I run the Lifecycle "package" to create the jar file named "MavenExercise-1.0-SNAPSHOT.jar".
+After that I run the command "java -jar MavenExercise-1.0-SNAPSHOT.jar", it will output "Hello world".
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+Question 4 :    Differentiate between the different dependency scopes: compile, runtime, test, provided using
+                different dependencies being defined in your pom.xml.
+
+Solution 4 :
+
+                Compile time scope : It is the default scope, when no scope is provided.
+                                     Dependencies of this scope are available on the classpath of the project in all build tasks.
+                                     These dependencies can also be transitive.
+
+                Run Time scope     : Dependencies of this scope are required at run time, and not needed at compile time.
+
+                Test scope         : We use this scope for the dependencies which are only needed at the time of testing purposes.
+                                     Test dependencies aren't transitive.
+
+
+                For the solution, I have added the following code :
+
+                    <!--Compile Time Dependency-->
+                        <dependency>
+                            <groupId>commons-lang</groupId>
+                            <artifactId>commons-lang</artifactId>
+                            <version>2.6</version>
+                        </dependency>
+
+                        <!--Run Time Dependency-->
+                        <dependency>
+                            <groupId>mysql</groupId>
+                            <artifactId>mysql-connector-java</artifactId>
+                            <version>8.0.30</version>
+                            <scope>runtime</scope>
+                        </dependency>
+
+                        <!--Q4 Test Dependency-->
+                        <dependency>
+                            <groupId>junit</groupId>
+                            <artifactId>junit</artifactId>
+                            <version>4.13.2</version>
+                            <scope>test</scope>
+                        </dependency>
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Question 5 :    Create a multi-module project. Run package command at the top level to make jar of every module.
+
+Solution 5 :    I have created a parent module named "MavenExercise".
+                Under this, I have created three sub-modules named core, service and webapp respectively.
+                In the pom file of the parent module, I have added "<packaging>pom</packaging>",
+                by setting it as pom, it serves as the Parent module.While running the package command,
+                it will create jar files for all three modules named core-1.0-SNAPSHOT.jar,
+                service-1.0-SNAPSHOT.jar and webapp-1.0-SNAPSHOT.jar.
+
+                Automatically the following code is inserted in the parent module's pom file :
+                    <modules>
+                        <module>core</module>
+                        <module>service</module>
+                        <module>webapp</module>
+                    </modules>
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
